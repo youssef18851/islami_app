@@ -18,7 +18,7 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if(verses.isEmpty){
+    if (verses.isEmpty) {
       loadFile(args.index);
     }
     return Container(
@@ -39,19 +39,26 @@ class _SuraDetailsState extends State<SuraDetails> {
           padding: const EdgeInsets.all(14),
           child: Card(
             elevation: 10,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25)
-            ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView.builder(
+              child: ListView.separated(
+                  separatorBuilder: (context, index) => Divider(
+                        color: MyThemeData.primaryColor,
+                        thickness: 1,
+                        indent: 40,
+                        endIndent: 40,
+                      ),
                   itemBuilder: (context, index) {
                     return Center(
-                        child: Text(verses[index],
-                            style: Theme.of(context).textTheme.bodySmall,
-                          textAlign: TextAlign.center,
-                        ),
-                        );
+                      child: Text(
+                        '${verses[index]}(${index + 1})',
+                        textDirection: TextDirection.rtl,
+                        style: Theme.of(context).textTheme.bodySmall,
+                        textAlign: TextAlign.center,
+                      ),
+                    );
                   },
                   itemCount: verses.length),
             ),

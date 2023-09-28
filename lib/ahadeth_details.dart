@@ -27,21 +27,22 @@ class AhadethDetails extends StatelessWidget {
           padding: const EdgeInsets.all(14),
           child: Card(
             elevation: 10,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25)
-            ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Center(
-                      child: Text('${args.content[index]}(${index+1})',
+                      child: Text(
+                        '${args.content[index]}(${index + 1})',
+                        textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.center,
                       ),
                     );
                   },
-                  itemCount:args.content.length),
+                  itemCount: args.content.length),
             ),
           ),
         ),

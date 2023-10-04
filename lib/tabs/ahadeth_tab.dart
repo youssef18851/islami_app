@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/theme_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
   const AhadethTab({super.key});
@@ -11,7 +12,9 @@ class AhadethTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Image(
-            image: AssetImage('assets/images/ahadeth_image.png',),
+            image: AssetImage(
+              'assets/images/ahadeth_image.png',
+            ),
           ),
           Divider(
             color: MyThemeData.primaryColor,
@@ -20,7 +23,7 @@ class AhadethTab extends StatelessWidget {
           Column(
             children: [
               Text(
-                'الاحاديث',
+                AppLocalizations.of(context)!.ahadeth,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
@@ -32,7 +35,6 @@ class AhadethTab extends StatelessWidget {
             color: MyThemeData.primaryColor,
             thickness: 3,
           ),
-
         ],
       ),
     );

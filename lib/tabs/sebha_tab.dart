@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/theme_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -31,7 +32,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ],
           ),
           Text(
-            'عدد السبيحات',
+            AppLocalizations.of(context)!.numberOfPraises,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontSize: 25,
                   fontWeight: FontWeight.w100,

@@ -81,7 +81,7 @@ class _SettingTabState extends State<SettingTab> {
                   ),
                   InkWell(
                       onTap: () {
-                        BottomSheet();
+                        bottomSheet();
                       },
                       child: const Icon(Icons.arrow_downward))
                 ],
@@ -107,7 +107,7 @@ class _SettingTabState extends State<SettingTab> {
       builder: (context) => LanguageBottom(),
     );
   }
-  BottomSheet() {
+  bottomSheet() {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,

@@ -8,7 +8,8 @@
   "settings": "الأعدادات",
   "numberOfPraises": "عدد السبيحات",
   "language": "اللغة",
-  "mainLanguage": "عربي",
+  "mainLanguage": "الانجليزية",
+  "secondLanguage": "العربية",
   "themeMode": "الوضع",
   "firstTheme": "وضع الضوء",
   "secondTheme": "الوضع المظلم"

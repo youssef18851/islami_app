@@ -7,5 +7,9 @@
   "radio": "راديو",
   "settings": "الأعدادات",
   "numberOfPraises": "عدد السبيحات",
-  "language": "اللغة"
+  "language": "اللغة",
+  "mainLanguage": "عربي",
+  "themeMode": "الوضع",
+  "firstTheme": "وضع الضوء",
+  "secondTheme": "الوضع المظلم"
 }

@@ -7,10 +7,10 @@
   "radio": "Radio",
   "settings": "Settings",
   "numberOfPraises": "Number Of Praises",
-  "language": "Language"
-
-
-
-
+  "language": "Language",
+  "mainLanguage": "English",
+  "themeMode": "Theme",
+  "firstTheme": "Light Mode",
+  "secondTheme": "Dark Mode"
 
 }

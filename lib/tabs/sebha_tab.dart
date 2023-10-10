@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/theme_data.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../providers/my_provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -11,22 +12,24 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   int counter = 0;
-  int index=0;
-  List<String>txt=['سبحان الله','الحمد لله',"الله اكبر"];
-
-
+  int index = 0;
+  List<String> txt = ['سبحان الله', 'الحمد لله', "الله اكبر"];
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
+
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Column(
+          Column(
             children: [
               Image(
                 image: AssetImage(
-                  'assets/images/elsebha.png',
+                  provider.themeCode == ThemeMode.light
+                      ? 'assets/images/elsebha.png'
+                      : 'assets/images/elsebha_dark.png',
                 ),
               ),
             ],
@@ -43,14 +46,14 @@ class _SebhaTabState extends State<SebhaTab> {
               Container(
                   width: 69,
                   height: 81,
-                  decoration: const BoxDecoration(
-                      color: Color.fromARGB(80, 183, 147, 95),
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
+                  decoration:  BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: const BorderRadius.all(Radius.circular(25))),
                   child: Center(
                     child: Text('$counter',
                         style: TextStyle(
                           fontFamily: 'MonotypeKoufi',
-                          color: MyThemeData.secondColor,
+                          color: Theme.of(context).colorScheme.onBackground,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         )),
@@ -61,24 +64,22 @@ class _SebhaTabState extends State<SebhaTab> {
               InkWell(
                 onTap: () {
                   counter++;
-                  if(counter==34){
-                    counter=0;
+                  if (counter == 34) {
+                    counter = 0;
                     index++;
-                    if(index==3){
-                      index=0;
+                    if (index == 3) {
+                      index = 0;
                     }
-
                   }
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: Container(
                   width: 137,
                   height: 51,
                   decoration: BoxDecoration(
-                      color: MyThemeData.primaryColor,
-                      borderRadius: const BorderRadius.all(Radius.circular(25))),
+                      color: Theme.of(context).colorScheme.background,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(25))),
                   child: Center(
                       child: Text(
                     txt[index],

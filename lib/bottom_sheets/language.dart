@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/theme_data.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import '../providers/my_provider.dart';
@@ -19,16 +18,19 @@ class LanguageBottom extends StatelessWidget {
           InkWell(
               onTap: () {
                 provider.changeLanguage('en');
+                Navigator.pop(context);
               },
               child: Row(
                 children: [
-                  Text(AppLocalizations.of(context)!.mainLanguage),
+                  Text(
+                    AppLocalizations.of(context)!.mainLanguage,
+                  ),
                   const Spacer(),
                   provider.languageCode == 'en'
                       ? Icon(
                           Icons.check_circle,
                           size: 30,
-                          color: MyThemeData.primaryColor,
+                          color: Theme.of(context).colorScheme.onSecondary,
                         )
                       : const SizedBox.shrink(),
                 ],
@@ -36,17 +38,20 @@ class LanguageBottom extends StatelessWidget {
           InkWell(
               onTap: () {
                 provider.changeLanguage('ar');
+                Navigator.pop(context);
               },
               child: Row(
                 children: [
-                  Text(AppLocalizations.of(context)!.secondLanguage),
+                  Text(
+                    AppLocalizations.of(context)!.secondLanguage,
+                  ),
                   const Spacer(),
                   provider.languageCode == 'en'
                       ? const SizedBox.shrink()
                       : Icon(
                           Icons.check_circle,
                           size: 30,
-                          color: MyThemeData.secondColor,
+                          color: Theme.of(context).colorScheme.onSecondary,
                         )
                 ],
               )),

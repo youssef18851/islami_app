@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/theme_data.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
@@ -17,7 +16,7 @@ class AhadethTab extends StatelessWidget {
             ),
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
           Column(
@@ -26,13 +25,12 @@ class AhadethTab extends StatelessWidget {
                 AppLocalizations.of(context)!.ahadeth,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyMedium!
-                    .copyWith(color: MyThemeData.secondColor),
+                    .bodyMedium,
               ),
             ],
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
         ],

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/my_provider.dart';
 import 'package:islami_app/tabs/ahadeth_tab.dart';
 import 'package:islami_app/tabs/quran_tab.dart';
 import 'package:islami_app/tabs/radio_tab.dart';
 import 'package:islami_app/tabs/sebha_tab.dart';
 import 'package:islami_app/tabs/setting_tab.dart';
-import 'package:islami_app/theme_data.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
 class Home extends StatefulWidget {
   static const String routeName = 'Home';
 
@@ -20,9 +22,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
+
     return Stack(children: [
       Image.asset(
-        'assets/images/background.png',
+        provider.themeCode == ThemeMode.light
+            ? 'assets/images/background.png'
+            : 'assets/images/dark_bg.png',
         fit: BoxFit.cover,
         width: double.infinity,
       ),
@@ -43,26 +49,30 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/quran.png')),
               label: AppLocalizations.of(context)!.quran,
-              backgroundColor: MyThemeData.primaryColor,
+              backgroundColor: Theme.of(context).colorScheme.primary
+              //backgroundColor: provider.themeCode == ThemeMode.light
+                 // ? Theme.of(context).colorScheme.background
+                 // : MyThemeData.primaryDarkColor,
             ),
             BottomNavigationBarItem(
                 icon: const ImageIcon(AssetImage('assets/images/sebha.png')),
                 label: AppLocalizations.of(context)!.sebha,
-                backgroundColor: MyThemeData.primaryColor),
+                backgroundColor: Theme.of(context).colorScheme.primary
+            ),
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/ahadeth.png')),
               label: AppLocalizations.of(context)!.ahadeth,
-              backgroundColor: MyThemeData.primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary
             ),
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/radio.png')),
               label: AppLocalizations.of(context)!.radio,
-              backgroundColor: MyThemeData.primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.settings),
               label: AppLocalizations.of(context)!.settings,
-              backgroundColor: MyThemeData.primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary
             ),
           ],
         ),
@@ -76,6 +86,6 @@ class _HomeState extends State<Home> {
     const SebhaTab(),
     const AhadethTab(),
     const RadioTab(),
-    const SettingTab()
+    SettingTab()
   ];
 }

@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:islami_app/ahadeth_model.dart';
 import 'package:islami_app/theme_data.dart';
-import 'sura_model.dart';
 
-class SuraDetails extends StatefulWidget {
-  static const String routeName = 'SuraDetails';
-
-  const SuraDetails({super.key});
-
-  @override
-  State<SuraDetails> createState() => _SuraDetailsState();
-}
-
-class _SuraDetailsState extends State<SuraDetails> {
-  List<String> verses = [];
+class AhadethDetails extends StatelessWidget {
+  const AhadethDetails({super.key});
+  static const String routeName = 'AhadethDetails';
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if (verses.isEmpty) {
-      loadFile(args.index);
-    }
+    var args = ModalRoute.of(context)?.settings.arguments as HadethModel;
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -31,7 +19,7 @@ class _SuraDetailsState extends State<SuraDetails> {
         appBar: AppBar(
           iconTheme: IconThemeData(color: MyThemeData.secondColor, size: 30),
           title: Text(
-            args.name,
+            args.title,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -43,36 +31,22 @@ class _SuraDetailsState extends State<SuraDetails> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView.separated(
-                  separatorBuilder: (context, index) => Divider(
-                        color: MyThemeData.primaryColor,
-                        thickness: 1,
-                        indent: 40,
-                        endIndent: 40,
-                      ),
+              child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Center(
                       child: Text(
-                        '${verses[index]}(${index + 1})',
+                        '${args.content[index]}(${index + 1})',
                         textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.center,
                       ),
                     );
                   },
-                  itemCount: verses.length),
+                  itemCount: args.content.length),
             ),
           ),
         ),
       ),
     );
-  }
-
-  loadFile(int index) async {
-    String files = await rootBundle.loadString('assets/files/${index + 1}.txt');
-    List<String> lines = files.split('\n');
-    debugPrint(lines.toString());
-    verses = lines;
-    setState(() {});
   }
 }

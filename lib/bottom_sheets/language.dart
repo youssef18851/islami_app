@@ -1,46 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/theme_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../providers/my_provider.dart';
 
 class LanguageBottom extends StatelessWidget {
-  LanguageBottom({super.key});
-  bool isEnglish = true;
+  const LanguageBottom({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       height: MediaQuery.of(context).size.height * .59,
       padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('Eglish'),
-              isEnglish == true
-                  ? Icon(
-                      Icons.check_circle,
-                      size: 30,
-                      color: MyThemeData.primaryColor,
-                    )
-                  : const SizedBox.shrink()
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('Arabic'),
-              isEnglish == true
-                  ? const SizedBox.shrink()
-                  : Icon(
-                      Icons.check_circle,
-                      size: 30,
-                      color: MyThemeData.secondColor,
-                    )
-            ],
-          )
+          InkWell(
+              onTap: () {
+                provider.changeLanguage('en');
+              },
+              child: Row(
+                children: [
+                  Text(AppLocalizations.of(context)!.mainLanguage),
+                  const Spacer(),
+                  provider.languageCode == 'en'
+                      ? Icon(
+                          Icons.check_circle,
+                          size: 30,
+                          color: MyThemeData.primaryColor,
+                        )
+                      : const SizedBox.shrink(),
+                ],
+              )),
+          InkWell(
+              onTap: () {
+                provider.changeLanguage('ar');
+              },
+              child: Row(
+                children: [
+                  Text(AppLocalizations.of(context)!.secondLanguage),
+                  const Spacer(),
+                  provider.languageCode == 'en'
+                      ? const SizedBox.shrink()
+                      : Icon(
+                          Icons.check_circle,
+                          size: 30,
+                          color: MyThemeData.secondColor,
+                        )
+                ],
+              )),
         ],
       ),
     );

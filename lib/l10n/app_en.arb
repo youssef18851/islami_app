@@ -9,6 +9,7 @@
   "numberOfPraises": "Number Of Praises",
   "language": "Language",
   "mainLanguage": "English",
+  "secondLanguage": "Arabic",
   "themeMode": "Theme",
   "firstTheme": "Light Mode",
   "secondTheme": "Dark Mode"

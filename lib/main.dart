@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home.dart';
+import 'package:islami_app/providers/my_provider.dart';
 import 'package:islami_app/sura_details.dart';
 import 'package:islami_app/theme_data.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/providers/my_provider.dart';
+import 'package:islami_app/theme_data.dart';
 import 'package:provider/provider.dart';
 import 'sura_model.dart';
 
@@ -52,16 +53,11 @@ class _SuraDetailsState extends State<SuraDetails> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25)
             ),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView.separated(separatorBuilder: (context, index) => Divider(
-                color: Theme.of(context).dividerColor,
-                thickness: 1,
-                endIndent: 40,
-                indent: 40,
-              ),
+
+
               child: ListView.separated(
                   separatorBuilder: (context, index) => Divider(
                         color: MyThemeData.primaryColor,
@@ -80,11 +76,10 @@ class _SuraDetailsState extends State<SuraDetails> {
                     );
                   },
                   itemCount: verses.length),
-            ),
           ),
         ),
       ),
-    );
+    ));
   }
 
   loadFile(int index) async {

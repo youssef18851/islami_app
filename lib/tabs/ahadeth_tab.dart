@@ -31,7 +31,7 @@ class _AhadethTabState extends State<AhadethTab> {
             ),
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
           Column(
@@ -40,13 +40,12 @@ class _AhadethTabState extends State<AhadethTab> {
                 AppLocalizations.of(context)!.ahadeth,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyMedium!
-                    .copyWith(color: MyThemeData.secondColor),
+                    .bodyMedium,
               ),
             ],
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
           Expanded(

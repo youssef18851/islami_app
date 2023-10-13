@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/sura_details.dart';
 import 'package:islami_app/sura_model.dart';
-import 'package:islami_app/theme_data.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class QuranTab extends StatelessWidget {
   static List<String> suraNames = [
@@ -135,7 +134,7 @@ class QuranTab extends StatelessWidget {
             ),
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
           Column(
@@ -144,19 +143,18 @@ class QuranTab extends StatelessWidget {
                 AppLocalizations.of(context)!.suraNames,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyMedium!
-                    .copyWith(color: MyThemeData.secondColor),
+                    .bodyMedium,
               ),
             ],
           ),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: Theme.of(context).dividerColor,
             thickness: 3,
           ),
           Expanded(
             child: ListView.separated(
                 separatorBuilder: (context, index) => Divider(
-                      color: MyThemeData.primaryColor,
+                  color: Theme.of(context).dividerColor,
                       thickness: 1,
                       endIndent: 40,
                       indent: 40,
@@ -172,8 +170,7 @@ class QuranTab extends StatelessWidget {
                       suraNames[index],
                       style: Theme.of(context)
                           .textTheme
-                          .bodyMedium!
-                          .copyWith(color: MyThemeData.secondColor),
+                          .bodyMedium,
                     )),
                   );
                 },

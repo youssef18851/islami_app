@@ -4,11 +4,25 @@ import 'package:google_fonts/google_fonts.dart';
 class MyThemeData {
   static Color primaryColor = const Color(0XFFB7935F);
   static Color secondColor = const Color(0XFF242424);
-  static Color primaryDarkColor = const Color(0XFFFACC1D);
-  static Color secondDarkColor = const Color(0XFF141A2E);
+  static Color primaryDarkColor = const Color(0XFF0F1424);
+  static Color secondDarkColor = const Color(0XFFFACC1D);
+  static Color thirdDarkColor = const Color(0XFFF8F8F8);
 
   static ThemeData lightTheme = ThemeData(
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: primaryColor,
+          onPrimary: Colors.white,
+          secondary: Colors.black,
+          onSecondary: primaryColor,
+          error: Colors.red,
+          onError: Colors.white,
+          background: primaryColor,
+          onBackground: Colors.black,
+          surface: Colors.white,
+          onSurface: Colors.black),
       scaffoldBackgroundColor: Colors.transparent,
+      dividerColor: primaryColor,
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
           color: secondColor,
@@ -23,7 +37,7 @@ class MyThemeData {
         bodySmall: TextStyle(
           fontFamily: 'DecoType',
           color: secondColor,
-          fontSize: 20,
+          fontSize: 25,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -37,22 +51,37 @@ class MyThemeData {
           unselectedItemColor: const Color(0XFFFFFFFF),
           type: BottomNavigationBarType.shifting));
   static ThemeData darkTheme = ThemeData(
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: primaryDarkColor,
+          onPrimary: Colors.black,
+          secondary: Colors.white,
+          onSecondary: Colors.white,
+          error: Colors.red,
+          onError: Colors.white,
+          background: secondDarkColor,
+          onBackground: Colors.white,
+          surface: primaryDarkColor,
+          onSurface: secondDarkColor),
+      iconTheme: const IconThemeData(color: Colors.white, size: 30),
       scaffoldBackgroundColor: Colors.transparent,
+      dividerColor: secondDarkColor,
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
-          color: secondColor,
+          color: Colors.white,
           fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
         bodyMedium: GoogleFonts.elMessiri(
-          color: primaryDarkColor,
+          color: thirdDarkColor,
           fontSize: 25,
           fontWeight: FontWeight.w500,
         ),
-        bodySmall: GoogleFonts.elMessiri(
-          color: const Color(0XFFFFFFFF),
-          fontSize: 20,
-          fontWeight: FontWeight.w400,
+        bodySmall: TextStyle(
+          fontFamily: 'DecoType',
+          color: secondDarkColor,
+          fontSize: 25,
+          fontWeight: FontWeight.w500,
         ),
       ),
       appBarTheme: AppBarTheme(
@@ -62,7 +91,7 @@ class MyThemeData {
         centerTitle: true,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: primaryDarkColor,
+          selectedItemColor: secondDarkColor,
           unselectedItemColor: const Color(0XFFFFFFFF),
           type: BottomNavigationBarType.shifting));
 }

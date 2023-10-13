@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/ahadeth_model.dart';
 import 'package:islami_app/theme_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../ahadeth_details.dart';
 
@@ -36,7 +37,7 @@ class _AhadethTabState extends State<AhadethTab> {
           Column(
             children: [
               Text(
-                'الاحاديث',
+                AppLocalizations.of(context)!.ahadeth,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!

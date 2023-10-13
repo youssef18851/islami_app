@@ -5,7 +5,7 @@ import 'package:islami_app/tabs/radio_tab.dart';
 import 'package:islami_app/tabs/sebha_tab.dart';
 import 'package:islami_app/tabs/setting_tab.dart';
 import 'package:islami_app/theme_data.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Home extends StatefulWidget {
   static const String routeName = 'Home';
 
@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
       Scaffold(
         appBar: AppBar(
           title: Text(
-            'أسلامي',
+            AppLocalizations.of(context)!.appTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -42,26 +42,26 @@ class _HomeState extends State<Home> {
           items: [
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/quran.png')),
-              label: 'قرأن',
+              label: AppLocalizations.of(context)!.quran,
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
                 icon: const ImageIcon(AssetImage('assets/images/sebha.png')),
-                label: 'سبحة',
+                label: AppLocalizations.of(context)!.sebha,
                 backgroundColor: MyThemeData.primaryColor),
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/ahadeth.png')),
-              label: 'احاديث',
+              label: AppLocalizations.of(context)!.ahadeth,
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/images/radio.png')),
-              label: 'راديو',
+              label: AppLocalizations.of(context)!.radio,
               backgroundColor: MyThemeData.primaryColor,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.settings),
-              label: 'الاعدادات',
+              label: AppLocalizations.of(context)!.settings,
               backgroundColor: MyThemeData.primaryColor,
             ),
           ],

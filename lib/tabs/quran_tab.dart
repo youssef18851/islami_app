@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/sura_details.dart';
-import 'package:islami_app/sura_model.dart';
+import 'package:islami_app/models/sura_details.dart';
+import 'package:islami_app/models/sura_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class QuranTab extends StatelessWidget {
   static List<String> suraNames = [

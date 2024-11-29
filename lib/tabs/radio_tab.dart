@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/theme_data.dart';
+import 'package:islami_app/shared/themes/theme_data.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});

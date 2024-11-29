@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/home.dart';
+import 'package:islami_app/layout/home.dart';
 import 'package:islami_app/providers/my_provider.dart';
-import 'package:islami_app/sura_details.dart';
-import 'package:islami_app/theme_data.dart';
+import 'package:islami_app/models/sura_details.dart';
+import 'package:islami_app/shared/themes/theme_data.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'ahadeth_details.dart';
+import 'models/ahadeth_details.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(

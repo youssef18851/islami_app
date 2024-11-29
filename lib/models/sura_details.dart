@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/providers/my_provider.dart';
-import 'package:islami_app/theme_data.dart';
+import 'package:islami_app/shared/themes/theme_data.dart';
 import 'package:provider/provider.dart';
 import 'sura_model.dart';
 
